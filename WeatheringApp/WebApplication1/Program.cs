@@ -16,9 +16,11 @@ namespace WebApplication1
     {
         public static async Task Main(string[] args)
         {
-            //CreateHostBuilder(args).Build().Run();
 
             await ApiService.ConnectToAPI();
+
+            CreateHostBuilder(args).Build().Run();
+
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
