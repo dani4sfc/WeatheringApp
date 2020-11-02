@@ -13,7 +13,7 @@ namespace WebApplication1.Services
     {
         public static async Task ConnectToAPI()
         {
-            Weather weather = new Weather();
+            WeatherRoot weather = new WeatherRoot();
 
             string requestBase = "api.openweathermap.org/data/2.5/weather?q=";
 
@@ -49,7 +49,7 @@ namespace WebApplication1.Services
             {
                 using (var responseStream = response.Content.ReadAsStringAsync()) {
 
-                    Console.Write("200 returned from API \n");
+                    Console.WriteLine("200 returned from API \n");
 
                     //Use json library to deserialize / read the content as string
 
@@ -59,7 +59,7 @@ namespace WebApplication1.Services
 
                     try
                     {
-                        Weather wObject = JsonConvert.DeserializeObject<Weather>(data);
+                        WeatherRoot wObject = JsonConvert.DeserializeObject<WeatherRoot>(data);
 
                     }
                     catch (Exception e)
