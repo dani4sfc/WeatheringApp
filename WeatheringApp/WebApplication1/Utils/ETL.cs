@@ -37,38 +37,18 @@ namespace WebApplication1.Utils
             return result;
         }
 
-        static async Task<float> ParseClouds(int id)
+        static async Task<double> ParseClouds(int id)
         {
             float test = 0;
 
-            if (id == 1)
-            {
+            return test = id / 100;
 
-            }
-            else if (id == 2)
-            {
-
-            }
-
-            return test;
         }
 
-        static async Task<int> ParseSys(int id)
+        static async Task<string> ParseSys(int value)
         {
-            int test = 0;
-
-            if (id == 1)
-            {
-
-            }
-            else if (id == 2)
-            {
-
-            }
-
-            return test;
+            return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(value).ToShortDateString();
         }
     }
-
 
 }
