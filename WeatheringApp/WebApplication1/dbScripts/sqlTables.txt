@@ -1,0 +1,23 @@
+﻿CREATE TABLE `data` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`date` DATE NOT NULL,
+	`city` CHAR(50) NOT NULL,
+	`timezone` CHAR(10) NOT NULL,
+	`main` CHAR(20) NOT NULL,
+	`description` CHAR(30) NOT NULL,
+	`icon` CHAR(5) NOT NULL,
+	`temp` DOUBLE NOT NULL,
+	`feels_like` DOUBLE NOT NULL,
+	`temp_min` DOUBLE NOT NULL,
+	`temp_max` DOUBLE NOT NULL,
+	`pressure` INT NOT NULL,
+	`humidity` INT NOT NULL,
+	`wind_speed` DOUBLE NOT NULL,
+	`wind_deg` INT NOT NULL,
+	`clouds` INT NOT NULL,
+	`sunrise` INT NOT NULL,
+	`sunset` INT NOT NULL,
+	  PRIMARY KEY (id)
+)
+COLLATE='latin1_general_ci'
+;

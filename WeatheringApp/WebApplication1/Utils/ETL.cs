@@ -39,9 +39,9 @@ namespace WebApplication1.Utils
 
         static async Task<double> ParseClouds(int id)
         {
-            float test = 0;
+            float result = 0;
 
-            return test = id / 100;
+            return result = id / 100;
 
         }
 
