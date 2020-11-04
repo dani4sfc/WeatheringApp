@@ -46,48 +46,48 @@ namespace WebApplication1.Models
     public partial class Main
     {
         [JsonProperty("temp")]
-        public float temp { get; set; }
+        public double temp { get; set; }
 
         [JsonProperty("feels_like")]
-        public float feelsLike { get; set; }
+        public double feelsLike { get; set; }
 
         [JsonProperty("temp_min")]
-        public float tempMin { get; set; }
+        public double tempMin { get; set; }
 
         [JsonProperty("temp_max")]
-        public float tempMax { get; set; }
+        public double tempMax { get; set; }
 
         [JsonProperty("pressure")]
-        public float pressure { get; set; }
+        public int pressure { get; set; }
 
         [JsonProperty("humidity")]
-        public float humidity { get; set; }
+        public int humidity { get; set; }
     }
 
     public partial class Wind
     {
         [JsonProperty("speed")]
-        public float speed { get; set; }
+        public double speed { get; set; }
 
         [JsonProperty("deg")]
-        public float deg { get; set; }
+        public int deg { get; set; }
 
     }
 
     public partial class Clouds
     {
         [JsonProperty("clouds")]
-        public float clouds { get; set; }
+        public int clouds { get; set; }
 
     }
 
     public partial class Sys
     {
         [JsonProperty("sunrise")]
-        public double sunrise { get; set; }
+        public int sunrise { get; set; }
 
         [JsonProperty("sunset")]
-        public double sunset { get; set; }
+        public int sunset { get; set; }
 
     }
 

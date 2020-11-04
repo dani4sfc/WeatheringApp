@@ -8,6 +8,8 @@ namespace WebApplication1.Utils
     public class ETL
     {
 
+        const double KELVINREF = -273.15;
+
         static async Task<float> ParseTimeZone(float data)
         {
 
@@ -19,52 +21,20 @@ namespace WebApplication1.Utils
 
         }
 
-        static async Task<string> ParseWeather(int id)
+        static async Task<double> ParseMainFloat(double value)
         {
-            string test = "";
+            double result = 0;
 
-            if (id == 1)
-            {
+            result = value + KELVINREF;
 
-            }
-            else if (id == 2)
-            {
-
-            }
-
-            return test;
+            return result;
         }
 
-        static async Task<float> ParseMain(int id)
+        static async Task<double> ParseWind(double value)
         {
-            float test = 0;
+            double result = value * 3.6;
 
-            if (id == 1)
-            {
-
-            }
-            else if (id == 2)
-            {
-
-            }
-
-            return test;
-        }
-
-        static async Task<float> ParseWind(int id)
-        {
-            float test = 0;
-
-            if (id == 1)
-            {
-
-            }
-            else if (id == 2)
-            {
-
-            }
-
-            return test;
+            return result;
         }
 
         static async Task<float> ParseClouds(int id)
@@ -83,9 +53,9 @@ namespace WebApplication1.Utils
             return test;
         }
 
-        static async Task<double> ParseSys(int id)
+        static async Task<int> ParseSys(int id)
         {
-            double test = 0;
+            int test = 0;
 
             if (id == 1)
             {
