@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using WebApplication1.Controllers;
+using WebApplication1.Models;
 using WebApplication1.Services;
 
 namespace WebApplication1
@@ -17,7 +18,9 @@ namespace WebApplication1
         public static async Task Main(string[] args)
         {
 
-            await ApiService.ConnectToAPI();
+            //await ApiService.ConnectToAPI();
+
+            WeatherRoot weather = await ETLService.GetData();
 
             CreateHostBuilder(args).Build().Run();
 

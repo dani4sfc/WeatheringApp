@@ -70,7 +70,7 @@ namespace WebApplication1.Models
         public double speed { get; set; }
 
         [JsonProperty("deg")]
-        public int deg { get; set; }
+        public double deg { get; set; }
 
     }
 
@@ -84,10 +84,10 @@ namespace WebApplication1.Models
     public partial class Sys
     {
         [JsonProperty("sunrise")]
-        public int sunrise { get; set; }
+        public string sunrise { get; set; }
 
         [JsonProperty("sunset")]
-        public int sunset { get; set; }
+        public string sunset { get; set; }
 
     }
 

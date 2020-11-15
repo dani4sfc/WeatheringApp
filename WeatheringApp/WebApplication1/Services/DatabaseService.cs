@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using MySqlConnector;
+using WebApplication1.Models;
 
 namespace WebApplication1.Services
 {
@@ -46,11 +47,17 @@ namespace WebApplication1.Services
             return ds;
         }
 
-        static void ExecuteNonQuery(string query)
+        static async Task ExecuteNonQuery(string query, List<MySqlParameter> paramList)
         {
             string connStr = "server=127.0.0.1, 3306; uid=root; pwd=root; database=weatheringapp";
 
             MySqlConnection connection = new MySqlConnection(connStr);
+
+            WeatherRoot weather = await ETLService.GetData();
+
+            //List<MySqlParameter> pList = new List<MySqlParameter>();
+
+            //Create the MySQL attributes and use them in the Insert command (Use the queryBuilder)
 
             // string query = QueryBuilder();
 
@@ -63,6 +70,8 @@ namespace WebApplication1.Services
                     MySqlCommand cmd = new MySqlCommand(query, connection);
 
                     cmd.ExecuteNonQuery();
+
+                    //Use the param list as argument
                 }
                 catch (MySqlException ex)
                 {

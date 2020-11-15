@@ -11,9 +11,11 @@ namespace WebApplication1.Services
 {
     public class ApiService
     {
-        public static async Task ConnectToAPI()
+        public static async Task<string> ConnectToAPI()
         {
             WeatherRoot weather = new WeatherRoot();
+
+            string data = string.Empty;
 
             string requestBase = "api.openweathermap.org/data/2.5/weather?q=";
 
@@ -53,26 +55,33 @@ namespace WebApplication1.Services
 
                     //Use json library to deserialize / read the content as string
 
-                    string data = responseStream.Result;
+                    data = responseStream.Result;
 
                     //string json = JsonConvert.SerializeObject(Weather);
 
-                    try
-                    {
-                        WeatherRoot wObject = JsonConvert.DeserializeObject<WeatherRoot>(data);
-
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine("Error: "+e.Message);
-                    }
-
                     //JsonConvert.DeserializeObject(Weather);
-
 
                 }
             }
-         
+            return data;
+        }
+
+        public static async Task<WeatherRoot> ExtractData()
+        {
+            string data = await ConnectToAPI();
+
+            WeatherRoot wObject = null;
+
+            try
+            {
+                wObject = JsonConvert.DeserializeObject<WeatherRoot>(data);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e.Message);
+            }
+
+            return wObject;
         }
     }
 }

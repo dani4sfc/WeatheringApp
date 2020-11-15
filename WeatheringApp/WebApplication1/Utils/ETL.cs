@@ -10,7 +10,7 @@ namespace WebApplication1.Utils
 
         const double KELVINREF = -273.15;
 
-        static async Task<float> ParseTimeZone(float data)
+        public static float ParseTimeZone(float data)
         {
 
             float result = 0;
@@ -21,7 +21,7 @@ namespace WebApplication1.Utils
 
         }
 
-        static async Task<double> ParseMainFloat(double value)
+        public static double ParseMainFloat(double value)
         {
             double result = 0;
 
@@ -30,24 +30,25 @@ namespace WebApplication1.Utils
             return result;
         }
 
-        static async Task<double> ParseWind(double value)
+        public static double ParseWind(double value)
         {
             double result = value * 3.6;
 
             return result;
         }
 
-        static async Task<double> ParseClouds(int id)
+        public static int ParseClouds(int value)
         {
-            float result = 0;
+            int result = 0;
 
-            return result = id / 100;
+            return result = value / 100;
 
         }
 
-        static async Task<string> ParseSys(int value)
+        public static string ParseSys(int value)
         {
-            return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(value).ToShortDateString();
+            string st = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(value).ToShortDateString();
+            return st;
         }
     }
 
